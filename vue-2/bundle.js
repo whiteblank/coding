@@ -75,7 +75,7 @@
 			var oldDataString = window.sessionStorage.getItem('myTodos');
 			var oldData = JSON.parse(oldDataString);
 			this.toDoList = oldData || [];
-			this.newToDo = window.sessionStorage.getItem('myInput');
+			this.newToDo = window.sessionStorage.getItem('myInput') || '';
 		},
 		methods: {
 			addToDos: function addToDos() {

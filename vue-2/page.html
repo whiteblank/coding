@@ -14,7 +14,7 @@
           {{ todo.title }}
           <span v-if="todo.checked">已完成</span>
           <span v-else>未完成</span>
-          <button v-on:click="removeToDos">X</button>
+          <button v-on:click="removeToDos(todo)">X</button>
         </li>
       </ol>
     </div>
