@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+    <title>vue</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="app">
+		<section id="signUpAndLogIn" v-if="!currentUser">
+			<label><input type="radio" name="statue" value="signUp" v-model="actionType">注册</label>
+			<label><input type="radio" name="statue" value="logIn" v-model="actionType">登陆</label>
+			<div class="signUp" v-if="actionType=='signUp'">
+				<form v-on:submit.prevent="signUp">
+					<div class="formRow">
+						用户名<input type="text" name="username" v-model="formData.username">
+					</div>
+					<div class="formRow">
+						密码<input type="password" name="pwd" v-model="formData.password">
+					</div>
+					<div class="formActions">
+						<input type="submit" value="注册">
+					</div>
+				</form>
+			</div>
+			<div class="logIn" v-if="actionType=='logIn'">
+				<form v-on:submit.prevent="logIn">
+					<div class="formRow">
+						用户名<input type="text" name="username" v-model="formData.username">
+					</div>
+					<div class="formRow">
+						密码<input type="password" name="pwd" v-model="formData.password">
+					</div>
+					<div class="formActions">
+						<input type="submit" value="登陆">
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<section id="newTask" v-if="currentUser">
+			<div>
+				<button v-on:click="logOut">登出</button>
+			</div>
+			<div>
+				<input type="text" name="item" v-model="newTodos" v-on:keyup.enter="addTodos">
+			</div>
+			<ol>
+				<li v-for="todo in todoList">
+					<input type="checkbox" name="done" value="done" v-model="todo.done">
+					{{ todo.title }}
+					<span v-if="todo.done">已完成</span>
+					<span v-else>未完成</span>
+					<button v-on:click="removeTodos(todo)">X</button>
+				</li>
+			</ol>
+			<p>用户名: {{ username }}</p>
+		</section>
+	</div>
+    
+    <script src="bundle.js"></script>
+</body>
+</html>

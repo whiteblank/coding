@@ -1,0 +1,32 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+#app{
+/*	border: 1px solid #333;*/
+	width: 200px;
+	border-radius: 5px;
+	box-shadow: 5px 3px 3px 2px #ccc;
+	background-color: #ccc;
+	text-align: center;
+	padding: 20px;
+	margin: 0 auto;
+	margin-top: 300px;
+}
+input[type='submit']{
+	width: 100%;
+	background-color: rgb(106,243,249);
+	margin-top: 10px;
+	border: none;
+	padding: 10px 0;
+	border-radius: 5px;
+}
+.formRow{
+	text-align: left;
+	padding-top: 10px;
+}
+.formRow input{
+	float: right;
+	margin-top: 4px;
+}
